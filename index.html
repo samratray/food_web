@@ -35,6 +35,8 @@
         <div id="search-btn" class="fas fa-search"></div>
         <div id="cart-btn" class="fas fa-shopping-cart"></div>
         <div id="login-btn" class="fas fa-user"></div>
+        <p id="username"></p>
+        <button id="login-btn" class="logoutbtn">Logout</button>
     </div>
     
 </header>
@@ -152,15 +154,15 @@
 
 <div class="login-form-container">
 
-    <form action="">
+    <form >
         <h3>login form</h3>
-        <input type="email" name="" placeholder="enter your email" id="" class="box">
-        <input type="password" name="" placeholder="enter your password" id="" class="box">
+        <input type="email" name="email" placeholder="enter your email" id="email" class="box">
+        <input type="password" name="password" placeholder="enter your password" id="password" class="box">
         <div class="remember">
             <input type="checkbox" name="" id="remember-me">
             <label for="remember-me">remember me</label>
         </div>
-        <input type="submit" value="login now" class="btn">
+        <button type="submit" value="login now" id="loginbtn" class="btn loginbtn">login now</button>
         <p>forget password? <a href="#">click here</a></p>
         <p>don't have an account? <a href="#">create one</a></p>
     </form>
@@ -172,7 +174,7 @@
 <section class="home" id="home">
 
     <div class="content">
-        <span>welcome foodies</span>
+        <span id="welcome">welcome foodies</span>
         <h3>different spices for the different tastes 😋</h3>
         <p>“Pull up a chair. Take a taste. Come join us. Life is so endlessly delicious.”</p>
         <a href="#" class="btn">order now</a>
@@ -582,14 +584,13 @@
         <div class="flex">
             <div class="inputBox">
                 <span>your name</span>
-                <input type="text" placeholder="customer's name" name="" id="">
+                <input type="text" value="" placeholder="customer's name" name="custname" id="">
             </div>
             <div class="inputBox">
                 <span>your number</span>
-                <input type="number" placeholder="customer's number" name="" id="">
+                <input type="number" value="" placeholder="customer's number" name="custnumber" id="">
             </div>
         </div>
-
         <div class="flex">
             <div class="inputBox">
                 <span>your order</span>
