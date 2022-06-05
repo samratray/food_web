@@ -84,18 +84,22 @@ document.querySelector('.home').onmouseleave = () =>{
 }   
 
 document.querySelector('#loginbtn').onclick = (e) => {
+    var found=false
     e.preventDefault()
     const users=JSON.parse(localStorage.getItem("user"))
     const email=document.querySelector('#email').value
     const password=document.querySelector('#password').value
     users.map((user)=>{
         if(email===user.email && password===user.password){
+            found=true;
             delete user.password
             localStorage.setItem("auth",JSON.stringify(user))
             location.reload()
         }
     })
-    
+    if(!found){
+        window.alert("Wrong Username or Password")  
+    }
 }
 
 document.querySelector('.logoutbtn').onclick = (e) => {
