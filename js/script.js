@@ -1,15 +1,34 @@
 let searchForm = document.querySelector('.search-form-container');
 
 if(typeof(window)!==undefined){
-let user={
+let user=[{
     email:"samratray@gmail.com",
     password:"samratray",
     name:"Samrat Ray",
     phone:"9876543210"
-}
+},
+{
+    email:"sohammitra@gmail.com",
+    password:"sohammitra",
+    name:"Soham Mitra",
+    phone:"9876543210"
+},
+{
+    email:"souvikmaiti@gmail.com",
+    password:"souvikmaiti",
+    name:"Souvik Maiti",
+    phone:"9876543210"
+},
+{
+    email:"pranshumajumder@gmail.com",
+    password:"pranshumajumder",
+    name:"Pranshu Majumder",
+    phone:"9876543210"
+}]
 if(!localStorage.getItem("user")){
     localStorage.setItem("user",JSON.stringify(user));
 }
+
 }
 
 
@@ -66,14 +85,17 @@ document.querySelector('.home').onmouseleave = () =>{
 
 document.querySelector('#loginbtn').onclick = (e) => {
     e.preventDefault()
-    const user=JSON.parse(localStorage.getItem("user"))
+    const users=JSON.parse(localStorage.getItem("user"))
     const email=document.querySelector('#email').value
     const password=document.querySelector('#password').value
-    if(email===user.email && password===user.password){
-        delete user.password
-        localStorage.setItem("auth",JSON.stringify(user))
-        location.reload()
-    }
+    users.map((user)=>{
+        if(email===user.email && password===user.password){
+            delete user.password
+            localStorage.setItem("auth",JSON.stringify(user))
+            location.reload()
+        }
+    })
+    
 }
 
 document.querySelector('.logoutbtn').onclick = (e) => {
