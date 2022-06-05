@@ -1,5 +1,18 @@
 let searchForm = document.querySelector('.search-form-container');
 
+if(typeof(window)!==undefined){
+let user={
+    email:"samratray@gmail.com",
+    password:"samratray",
+    name:"Samrat Ray",
+    phone:"9876543210"
+}
+if(!localStorage.getItem("user")){
+    localStorage.setItem("user",JSON.stringify(user));
+}
+}
+
+
 document.querySelector('#search-btn').onclick = () =>{
     searchForm.classList.toggle('active');
     cart.classList.remove('active');    
@@ -50,3 +63,31 @@ document.querySelector('.home').onmouseleave = () =>{
 
     document.querySelector('.home .home-parallax-img').style.transform = `translateX(0px) translateY(0px)`;
 }   
+
+document.querySelector('#loginbtn').onclick = (e) => {
+    e.preventDefault()
+    const user=JSON.parse(localStorage.getItem("user"))
+    const email=document.querySelector('#email').value
+    const password=document.querySelector('#password').value
+    if(email===user.email && password===user.password){
+        delete user.password
+        localStorage.setItem("auth",JSON.stringify(user))
+        location.reload()
+    }
+}
+
+document.querySelector('.logoutbtn').onclick = (e) => {
+    location.reload()
+    e.preventDefault()
+    localStorage.removeItem("auth")  
+}
+if(typeof(window)!==undefined){
+    if(localStorage.getItem("auth")){
+        const auth=JSON.parse(localStorage.getItem("auth"))
+        document.querySelector(".logoutbtn").style.display="block";
+        document.querySelector("#login-btn").style.display="none";
+        document.querySelector("#username").style.display="block";
+        document.querySelector("#username").innerHTML=auth.name;
+        document.querySelector("#welcome").innerHTML=`Welcome ${auth.name}`;
+    }
+    }

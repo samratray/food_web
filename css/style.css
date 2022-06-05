@@ -111,7 +111,10 @@ section {
 .header .navbar a:hover {
   color: #27ae60;
 }
-
+.header .icons{
+  display:flex;
+  align-items: center;
+}
 .header .icons div {
   height: 4.5rem;
   width: 4.5rem;
@@ -125,11 +128,43 @@ section {
   text-align: center;
 }
 
+.header .icons button {
+  height: 4.5rem;
+  width: 6rem;
+  line-height: 4.5rem;
+  font-size: 1.2rem;
+  background: #f7f7f7;
+  color: #130f40;
+  border-radius: .5rem;
+  margin-left: .3rem;
+  cursor: pointer;
+  text-align: center;
+}
 .header .icons div:hover {
   color: #fff;
   background: #27ae60;
 }
+.logoutbtn{
+  display:none
+}
 
+#username{
+  margin-left: 5px;
+  background: #27ae60;
+  color: white;
+  border-radius: .5rem;
+  height: 4.5rem;
+  padding-left: 5px;
+  padding-right: 5px;
+  line-height: 4.5rem;
+  display: none;
+  cursor:default;
+  font-size: 1.2rem;
+}
+.header .icons button:hover {
+  color: #fff;
+  background: #27ae60;
+}
 #menu-btn {
   display: none;
 }
